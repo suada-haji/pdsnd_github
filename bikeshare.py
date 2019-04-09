@@ -41,7 +41,6 @@ def get_day():
         day = input(day_input).lower()
     return day
 
-
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -247,18 +246,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-
-        # display the first five rows and request to show more
-        # --> https://pandas.pydata.org/pandas-docs/version/0.22/generated/pandas.DataFrame.to_dict.html
-        view_individial_data = input('\nWould you like to view individual trip data? Enter yes or no.\n')
-        count_start, count_end, print_count = -5, 0, view_individial_data
-        while print_count.lower() == 'yes':
-            print ('Collecting individual data...\n')
-            count_start += 5
-            count_end += 5
-            print(df.to_dict(orient='records')[count_start:count_end])
-            print_count = input('\nWould you like to view more individual trip data? Enter yes or no.\n')
-
+        
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
